@@ -1,66 +1,30 @@
-# Sistema de Busca Otimizado para Catálogo de Produtos - MegaStore
+# Sistema de Busca Otimizado para Catálogo de Produtos
 
-## Descrição do Projeto
+Este projeto é uma implementação de um sistema de busca de alta performance para o catálogo de produtos da "MegaStore", desenvolvido como parte da disciplina Estratégia e Implementação de Estruturas de Dados. O objetivo principal é resolver os problemas de lentidão e imprecisão do sistema de busca existente, proporcionando uma experiência de compra rápida e eficiente para os clientes.
 
-[cite_start]Este projeto é uma implementação de um sistema de busca de alta performance para o catálogo de produtos da "MegaStore", desenvolvido como parte da disciplina de Estratégia e Implementação de Estruturas de Dados[cite: 36]. [cite_start]O objetivo principal é resolver os problemas de lentidão e imprecisão do sistema de busca existente, proporcionando uma experiência de compra rápida e eficiente para os clientes[cite: 6, 7].
-
-[cite_start]O sistema indexa um catálogo de produtos e oferece buscas quase instantâneas por múltiplos critérios, como ID, nome, marca e categoria, garantindo escalabilidade para lidar com milhões de itens[cite: 15, 21, 23].
+O sistema indexa um catálogo de produtos e oferece buscas quase instantâneas por vários critérios, como ID, nome, marca e categoria, garantindo escalabilidade para lidar com milhões de itens.
 
 ## Tecnologias Utilizadas
 
-* [cite_start]**Linguagem de Programação:** Rust (versão 1.xx) [cite: 65]
-* [cite_start]**Gestor de Pacotes e Build System:** Cargo [cite: 58]
+* **Linguagem de Programação:** Rust (versão 1.xx)
+* **Gestor de Pacotes e Build System:** Cargo
 * **Crates (Bibliotecas) Principais:**
-    * [cite_start]`std::collections::HashMap`: Utilizada como a estrutura de dados central para a criação de índices de busca eficientes[cite: 72, 88].
-* [cite_start]**Ferramentas de Teste:** Framework de testes unitários integrado do Rust (`cargo test`)[cite: 89].
+    * `std::collections::HashMap`: Utilizada como a estrutura de dados central para a criação de índices de busca eficientes.
+* **Ferramentas de Teste:** Framework de teste integrado do Rust (`cargo test`).
 
 ## Instruções de Execução
 
 Para compilar e executar este projeto, certifique-se de que tem o Rust e o Cargo instalados.
 
-1.  **Clone o Repositório (Exemplo):**
-    ```sh
-    git clone [https://github.com/seu-usuario/megastore_search.git](https://github.com/seu-usuario/megastore_search.git)
-    cd megastore_search
-    ```
-
 2.  **Compile e Execute o Programa Principal:**
-    O programa principal (`main.rs`) contém exemplos de como adicionar produtos e realizar buscas. Para executá-lo, use o comando:
-    ```sh
-    cargo run
-    ```
+    O programa principal (`main.rs`) contém exemplos de como adicionar produtos e realizar buscas. 
 
 ## Instruções para Executar os Testes
 
-[cite_start]O projeto inclui um conjunto de testes unitários para garantir a fiabilidade e o correto funcionamento do sistema de busca[cite: 57].
+O projeto inclui um conjunto de testes unitários para garantir o correto funcionamento do sistema de busca.
 
-Para executar todos os testes, utilize o seguinte comando no terminal, a partir da raiz do projeto:
-```sh
-cargo test
-```
 Uma mensagem de sucesso indicará que todos os testes passaram, confirmando a integridade do código.
 
-## Exemplos de Uso
-
-O sistema de busca pode ser utilizado através dos métodos implementados na `struct Catalogo`. O ficheiro `src/main.rs` contém exemplos práticos, mas aqui estão alguns destaques:
-
-```rust
-// Criar um novo catálogo
-let mut catalogo = Catalogo::new();
-
-// Adicionar um novo produto
-let produto1 = Produto { id: 101, nome: "Smartphone XPTO".to_string(), ... };
-catalogo.adicionar_produto(produto1);
-
-// Buscar um produto pelo seu ID
-let resultado_id = catalogo.buscar_por_id(101);
-
-// Buscar um produto pelo seu nome
-let resultado_nome = catalogo.buscar_por_nome("Smartphone XPTO");
-
-// Buscar todos os produtos de uma marca
-let resultados_marca = catalogo.buscar_por_marca("Samsung");
-```
 
 ## Arquitetura do Sistema
 
@@ -71,7 +35,7 @@ A arquitetura do sistema é centrada em duas `structs` principais:
 
 ## Algoritmos e Estruturas de Dados Utilizados
 
-A espinha dorsal deste sistema de busca é a **Tabela Hash**, implementada em Rust através do `std::collections::HashMap`[cite: 72]. Esta escolha foi fundamental para alcançar o desempenho desejado.
+A parte principal deste sistema de busca é a **Tabela Hash**, implementada em Rust através do `std::collections::HashMap`. Esta escolha foi fundamental para alcançar o desempenho desejado.
 
 Foram criados os seguintes índices:
 1.  **`todos_os_produtos: HashMap<u32, Produto>`**: O nosso "arquivo mestre", que mapeia o ID de um produto para a sua `struct` completa. Permite acesso direto em tempo `O(1)`.
@@ -83,13 +47,5 @@ Esta abordagem de múltiplos índices permite que as buscas por diferentes crit�
 
 ## Considerações sobre Desempenho e Escalabilidade
 
-* **Desempenho:** Graças ao uso de `HashMap`, as operações de busca (por ID, nome, marca) têm uma complexidade de tempo média de `O(1)` (tempo constante), o que significa que o tempo de resposta permanece rápido mesmo com milhões de produtos no catálogo[cite: 80].
-* **Escalabilidade:** A arquitetura é altamente escalável. Adicionar mais produtos aumenta o consumo de memória dos `HashMap`s, mas o tempo de busca permanece constante. O sistema é capaz de lidar com o crescimento contínuo do catálogo da "MegaStore"[cite: 81].
-
-## Contribuições
-
-Este é um projeto académico. No entanto, sugestões e melhorias são bem-vindas. Sinta-se à vontade para abrir uma *issue* ou um *pull request*.
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT.
+* **Desempenho:** Graças ao uso de `HashMap`, as operações de busca (por ID, nome, marca) têm uma complexidade de tempo média de `O(1)` (tempo constante), o que significa que o tempo de resposta permanece rápido mesmo com milhões de produtos no catálogo.
+* **Escalabilidade:** A arquitetura é altamente escalável. Adicionar mais produtos aumenta o consumo de memória dos `HashMap`s, mas o tempo de busca permanece constante. O sistema é capaz de lidar com o crescimento contínuo do catálogo da "MegaStore".

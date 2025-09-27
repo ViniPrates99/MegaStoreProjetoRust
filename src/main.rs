@@ -82,7 +82,6 @@ fn main() {
 mod tests {
     use super::*;
 
-    // --- Testes que já tínhamos ---
     #[test]
     fn test_adicionar_e_buscar_produto_com_sucesso() {
         let mut catalogo = Catalogo::new();
@@ -100,7 +99,6 @@ mod tests {
         assert!(resultado.is_none());
     }
 
-    // --- NOSSOS NOVOS TESTES ---
 
     #[test]
     fn test_buscar_por_nome_funciona() {
