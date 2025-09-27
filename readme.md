@@ -16,13 +16,7 @@ O sistema indexa um catálogo de produtos e oferece buscas quase instantâneas p
 
 Para compilar e executar este projeto, certifique-se de que tem o Rust e o Cargo instalados.
 
-1.  **Clone o Repositório (Exemplo):**
-    ```sh
-    git clone [https://github.com/seu-usuario/megastore_search.git](https://github.com/seu-usuario/megastore_search.git)
-    cd megastore_search
-    ```
-
-2.  **Compile e Execute o Programa Principal:**
+  **Compile e Execute o Programa Principal:**
     O programa principal (`main.rs`) contém exemplos de como adicionar produtos e realizar buscas. Para executá-lo, use o comando:
     ```sh
     cargo run
@@ -83,11 +77,3 @@ Esta abordagem de múltiplos índices permite que as buscas por diferentes crit�
 
 * **Desempenho:** Graças ao uso de `HashMap`, as operações de busca (por ID, nome, marca) têm uma complexidade de tempo média de `O(1)` (tempo constante), o que significa que o tempo de resposta permanece rápido mesmo com milhões de produtos no catálogo.
 * **Escalabilidade:** A arquitetura é altamente escalável. Adicionar mais produtos aumenta o consumo de memória dos `HashMap`s, mas o tempo de busca permanece constante. O sistema é capaz de lidar com o crescimento contínuo do catálogo da "MegaStore".
-
-## Contribuições
-
-Este é um projeto académico. No entanto, sugestões e melhorias são bem-vindas. Sinta-se à vontade para abrir uma *issue* ou um *pull request*.
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT.
