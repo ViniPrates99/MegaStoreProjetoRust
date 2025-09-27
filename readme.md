@@ -18,13 +18,7 @@ O sistema indexa um catálogo de produtos e oferece buscas quase instantâneas p
 
 Para compilar e executar este projeto, certifique-se de que tem o Rust e o Cargo instalados.
 
-1.  **Clone o Repositório (Exemplo):**
-    ```sh
-    git clone [https://github.com/seu-usuario/megastore_search.git](https://github.com/seu-usuario/megastore_search.git)
-    cd megastore_search
-    ```
-
-2.  **Compile e Execute o Programa Principal:**
+  **Compile e Execute o Programa Principal:**
     O programa principal (`main.rs`) contém exemplos de como adicionar produtos e realizar buscas. Para executá-lo, use o comando:
     ```sh
     cargo run
